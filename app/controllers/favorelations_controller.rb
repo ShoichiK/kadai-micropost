@@ -3,15 +3,15 @@ class FavorelationsController < ApplicationController
   
   def create
     micropost = Micropost.find(params[:micropost_id])
-    current_user.favo(micropast)
+    current_user.favo(micropost)
     flash[:success] = 'お気に入りに登録しました。'
-    #redirect_to 
+    redirect_back(fallback_location: root_url)
   end
 
   def destroy
-    micropast = Micropost.find(params[:micropast_id])
-    current_user.unfavo(micropast)
+    micropost = Micropost.find(params[:micropost_id])
+    current_user.unfavo(micropost)
     flash[:success] = 'お気に入りを解除しました。'
-    #redirect_to
+    redirect_back(fallback_location: root_url)
   end
 end

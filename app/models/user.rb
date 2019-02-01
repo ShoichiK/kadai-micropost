@@ -49,7 +49,7 @@ class User < ApplicationRecord
   end
   
   def favoing?(micropost)
-    self.favorelations.include?(micropost)
+    self.favoings.include?(micropost)
   end
   
 end

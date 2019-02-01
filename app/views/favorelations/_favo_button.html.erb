@@ -1,0 +1,11 @@
+<% if current_user.favoing?(micropast) %>
+  <%= form_for(current_user.favorelations.find_by(micropast_id: micropast_id),html: {method: :delete}) do |f| %>
+    <%= hidden_field_tag :micropast_id, micropast.id %>
+    <%= f.submit 'Unfavo', class='btn btn-danger btn-xs' %>
+  <% end %>
+<% else %>
+  <%= form_for(current_user.favorelations.build) do |f| %>
+    <%= hidden_field_tag :micropast_id,micropast.id %
+    <%= f.submit 'Favo', class='btn btn-primary btn-xs' %>
+  <% end %>
+<% end %>

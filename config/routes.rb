@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     member do
       get :followings
       get :followers
+      get :favoing
     end
-    #ユーザ検索用
     #collection do
     #  get :search
     #end
@@ -19,4 +19,5 @@ Rails.application.routes.draw do
   
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :favorelations, only: [:create, :destroy]
 end
